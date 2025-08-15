@@ -1,0 +1,33 @@
+Domain GestonIntegralDePartnerships {
+  domainVisionStatement = "Gestion integral de partnerships para marcas"
+
+  Subdomain Afiliados {
+    type = CORE_DOMAIN
+    domainVisionStatement = "Gestión de programas de afiliados y automatización de la creación de los mismos para las marcas"
+  }
+
+  Subdomain Influencers {
+    type = CORE_DOMAIN
+    domainVisionStatement = "Conectar marcas con influencers verificados"
+  }
+
+  Subdomain Lealtad {
+    type = CORE_DOMAIN
+    domainVisionStatement = "Activar redes de empleados y clientes leales como embajadores de marca"
+  }
+
+  Subdomain Aliados {
+    type = CORE_DOMAIN
+    domainVisionStatement = "Gestionar el ciclo de vida de las relaciones comerciales"
+  }
+
+  Subdomain Reportes {
+    type = GENERIC_SUBDOMAIN
+    domainVisionStatement = "Presentar informes y repottes avanzados a los afiliados más efectivos"
+  }
+
+  Subdomain Pagos {
+    type = GENERIC_SUBDOMAIN
+    domainVisionStatement = "Procesar pagos a afiliados y influencers de manera segura y eficiente"
+  }
+}
