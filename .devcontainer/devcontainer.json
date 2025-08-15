@@ -1,0 +1,17 @@
+{
+  "name": "Context Mapper Dev Container",
+  "build": {
+    "dockerfile": "Dockerfile"
+  },
+  "postCreateCommand": "./gradlew clean build",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "jebbs.plantuml",
+        "contextmapper.context-mapper-vscode-extension",
+        "vscjava.vscode-java-pack",
+        "asciidoctor.asciidoctor-vscode"
+      ]
+    }
+  }
+}

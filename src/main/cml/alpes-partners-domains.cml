@@ -20,4 +20,36 @@ Domain GestonIntegralDePartnerships {
     type = CORE_DOMAIN
     domainVisionStatement = "Gestionar el ciclo de vida de las relaciones comerciales"
   }
+
+  Subdomain Reportes {
+    type = GENERIC_SUBDOMAIN
+    domainVisionStatement = "Presentar informes y repottes avanzados a los afiliados más efectivos"
+  }
+
+  Subdomain Pagos {
+    type = GENERIC_SUBDOMAIN
+    domainVisionStatement = "Procesar pagos a afiliados y influencers de manera segura y eficiente"
+  }
+}
+
+BoundedContext ContextoAfiliados implements Afiliados, Pagos {
+  Module Afiliados {
+
+  }
+}
+
+BoundedContext ContextoInfluencers implements Influencers, Pagos {
+  Module Influencers {
+
+  }
+}
+
+ContextMap {
+  type = SYSTEM_LANDSCAPE
+  state = AS_IS
+
+  contains ContextoAfiliados
+  contains ContextoInfluencers
+
+  ContextoAfiliados [SK]<->[SK] ContextoInfluencers
 }
