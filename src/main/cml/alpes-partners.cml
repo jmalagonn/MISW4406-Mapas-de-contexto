@@ -1,9 +1,9 @@
 Domain GestonIntegralDePartnerships {
-  domainVisionStatement = "Gestion integral de partnerships"
+  domainVisionStatement = "Gestion integral de partnerships para marcas"
 
   Subdomain Afiliados {
     type = CORE_DOMAIN
-    domainVisionStatement = "Gestión de programas de afiliados y automatización de la creación de los mismos"
+    domainVisionStatement = "Gestión de programas de afiliados y automatización de la creación de los mismos para las marcas"
   }
 
   Subdomain Influencers {
@@ -32,24 +32,32 @@ Domain GestonIntegralDePartnerships {
   }
 }
 
-BoundedContext ContextoAfiliados implements Afiliados, Pagos {
-  Module Afiliados {
-
-  }
+BoundedContext ContextoMarca implements Afiliados, Influencers, Lealtad , Reportes{
+  domainVisionStatement = "Todos los servicios giran en torno a las marcas"
 }
 
-BoundedContext ContextoInfluencers implements Influencers, Pagos {
-  Module Influencers {
+BoundedContext ContextoAliados implements Aliados, Pagos {
+  domainVisionStatement = "Gestión de relaciones comerciales y ciclo de vida de los aliados"
+}
 
-  }
+BoundedContext ContextoReportes implements Reportes {
+  domainVisionStatement = "Presentación de informes y reportes avanzados a los afiliados más efectivos"
+}
+
+BoundedContext ContextoPagos implements Pagos {
+  domainVisionStatement = "Procesamiento de pagos a afiliados y influencers de manera segura y eficiente"
 }
 
 ContextMap {
   type = SYSTEM_LANDSCAPE
   state = AS_IS
 
-  contains ContextoAfiliados
-  contains ContextoInfluencers
+  contains ContextoMarca
+  contains ContextoAliados
+  contains ContextoReportes
+  contains ContextoPagos
 
-  ContextoAfiliados [SK]<->[SK] ContextoInfluencers
+  ContextoMarca [SK]<->[SK] ContextoAliados
+  ContextoMarca <- ContextoReportes
+  ContextoAliados <- ContextoPagos
 }
