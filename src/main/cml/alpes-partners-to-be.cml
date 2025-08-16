@@ -1,33 +1,124 @@
-Domain GestonIntegralDePartnerships {
-  domainVisionStatement = "Gestion integral de partnerships para marcas"
+Domain GestionIntegralDePartnerships {
+  domainVisionStatement = "Plataforma distribuida y escalable para la gestión integral de partnerships, orientada a eventos y microservicios"
+
+  Subdomain Marca {
+    type = CORE_DOMAIN
+    domainVisionStatement = "Gestionar identidad de marca, campañas y activos; orquestar ofertas que consumen Afiliados/Influencers/Lealtad"
+  }
 
   Subdomain Afiliados {
     type = CORE_DOMAIN
-    domainVisionStatement = "Gestión de programas de afiliados y automatización de la creación de los mismos para las marcas"
+    domainVisionStatement = "Automatizar creación, monitoreo y optimización de programas de afiliados con escalabilidad global"
   }
 
   Subdomain Influencers {
     type = CORE_DOMAIN
-    domainVisionStatement = "Conectar marcas con influencers verificados"
+    domainVisionStatement = "Conectar marcas con influencers y creadores con atribución en tiempo real"
   }
 
   Subdomain Lealtad {
     type = CORE_DOMAIN
-    domainVisionStatement = "Activar redes de empleados y clientes leales como embajadores de marca"
+    domainVisionStatement = "Gestionar redes de clientes/empleados leales como embajadores con incentivos automáticos"
   }
 
   Subdomain Aliados {
     type = CORE_DOMAIN
-    domainVisionStatement = "Gestionar el ciclo de vida de las relaciones comerciales"
+    domainVisionStatement = "Gestionar y escalar el ciclo de vida de relaciones comerciales con integradores y socios B2B"
   }
 
   Subdomain Reportes {
-    type = GENERIC_SUBDOMAIN
-    domainVisionStatement = "Presentar informes y repottes avanzados a los afiliados más efectivos"
+    type = SUPPORTING_DOMAIN
+    domainVisionStatement = "Analítica en tiempo real: dashboards, A/B testing y medición de ROI"
   }
 
   Subdomain Pagos {
-    type = GENERIC_SUBDOMAIN
-    domainVisionStatement = "Procesar pagos a afiliados y influencers de manera segura y eficiente"
+    type = SUPPORTING_DOMAIN
+    domainVisionStatement = "Pagos globales multi-moneda con antifraude y cumplimiento"
   }
+
+  Subdomain Compliance {
+    type = SUPPORTING_DOMAIN
+    domainVisionStatement = "Automatizar auditorías y cumplimiento de contratos, pagos y datos"
+  }
+
+  Subdomain CatalogoOfertas {
+    type = GENERIC_SUBDOMAIN
+    domainVisionStatement = "Gestionar catálogo de campañas, promociones y contenidos de marca"
+  }
+
+  Subdomain Tracking {
+    type = CORE_DOMAIN
+    domainVisionStatement = "Tracking unificado de clics/ventas/leads y eventos multi-canal en tiempo real"
+  }
+}
+
+BoundedContext ContextoMarca implements Marca, CatalogoOfertas, Reportes {
+  domainVisionStatement = "Dueño de campañas/ofertas y activos de marca; provee artefactos y reglas al resto del dominio"
+}
+
+BoundedContext ContextoAfiliados implements Afiliados, Tracking, Reportes {
+  domainVisionStatement = "Servicios para gestionar programas de afiliados y optimizar rendimiento"
+}
+
+BoundedContext ContextoInfluencers implements Influencers, Tracking, Reportes {
+  domainVisionStatement = "Gestión distribuida de campañas con creadores, atribución precisa y pagos automáticos"
+}
+
+BoundedContext ContextoLealtad implements Lealtad, CatalogoOfertas, Reportes {
+  domainVisionStatement = "Activación de embajadores con incentivos automáticos y tracking de referidos"
+}
+
+BoundedContext ContextoAliados implements Aliados, Compliance {
+  domainVisionStatement = "Gestión de alianzas estratégicas, contratos y auditoría integrada"
+}
+
+BoundedContext ContextoPagos implements Pagos, Compliance {
+  domainVisionStatement = "Procesamiento de pagos escalable, antifraude, multi-moneda y cumplimiento normativo"
+}
+
+BoundedContext ContextoReportes implements Reportes {
+  domainVisionStatement = "Análisis en tiempo real, BI y reporting distribuido"
+}
+
+BoundedContext ContextoTracking implements Tracking {
+  domainVisionStatement = "Tracking distribuido basado en eventos para todos los canales y servicios"
+}
+
+BoundedContext ContextoCompliance implements Compliance {
+  domainVisionStatement = "Orquestación de cumplimiento y auditoría cruzando contratos, pagos y datos"
+}
+
+ContextMap {
+  type = SYSTEM_LANDSCAPE
+  state = TO_BE
+
+  contains ContextoMarca
+  contains ContextoAfiliados
+  contains ContextoInfluencers
+  contains ContextoLealtad
+  contains ContextoAliados
+  contains ContextoPagos
+  contains ContextoReportes
+  contains ContextoTracking
+  contains ContextoCompliance
+
+  // Shared Kernel para tracking de performance de campañas
+  ContextoAfiliados   [SK]<->[SK] ContextoTracking
+  ContextoInfluencers [SK]<->[SK] ContextoTracking
+  ContextoLealtad     [SK]<->[SK] ContextoTracking
+
+  // Flujo de datos de tracking hacia analítica
+  ContextoTracking -> ContextoReportes
+
+  // Cumplimiento regulatorio
+  ContextoPagos   -> ContextoCompliance
+  ContextoAliados <-> ContextoPagos
+
+  // Marca actúa como upstream funcional (origen de campañas y activos)
+  ContextoMarca -> ContextoAfiliados
+  ContextoMarca -> ContextoInfluencers
+  ContextoMarca -> ContextoLealtad
+
+  // Reportes puede consumir metadatos de marca para contexto analítico
+  ContextoMarca -> ContextoReportes
 }
