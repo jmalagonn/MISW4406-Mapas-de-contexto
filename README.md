@@ -3,7 +3,7 @@
 - Los dominios y sub-dominios fueron especificados en el siguiente documento [src/alpes-partners.cml](https://github.com/jmalagonn/MISW4406-Mapas-de-contexto/blob/main/src/main/cml/alpes-partners.cml)
 ## Documentación del lenguaje ubicuo
 ### AS-IS
-La documentación del lenguaje ubicuo AS-IS se puede consultar en el siguiente enlace [documentacion lenguaje ubicuo AS-IS]([https://miro.com/app/board/uXjVJUhmRa0=/](https://miro.com/app/board/uXjVJUhmRa0=/?share_link_id=48136594769)
+La documentación del lenguaje ubicuo AS-IS se puede consultar en el siguiente enlace [documentacion lenguaje ubicuo AS-IS](https://miro.com/app/board/uXjVJUhmRa0=/?share_link_id=48136594769)
 <img alt="image" src="https://github.com/user-attachments/assets/7e9a686a-c44a-4c72-8a26-89289138a2a4" />
 ### TO-BE
 La documentación del lenguaje ubicuo TO-BE se puede consultar en el siguiente enlace [documentacion lenguaje ubicuo AS-IS](#)
