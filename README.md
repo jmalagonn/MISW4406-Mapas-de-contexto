@@ -1,4 +1,9 @@
 # Entrega 1 - Definición de lenguaje Ubicuo, dominios y contextos
+##Grupo Desacoplados
+### MARIANA DIAZ ARENAS
+### MANUEL GUILLERMO SANCHEZ BALLEN
+### SERGIO ARTURO PEREZ RINCON
+### JUAN NICOLAS MALAGON NAVARRO
 ## Documentación de dominios y sub-dominios
 - Los dominios y sub-dominios fueron especificados en el siguiente documento [src/alpes-partners.cml](https://github.com/jmalagonn/MISW4406-Mapas-de-contexto/blob/main/src/main/cml/alpes-partners.cml)
 ## Documentación del lenguaje ubicuo
