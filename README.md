@@ -17,6 +17,23 @@ La documentación del lenguaje ubicuo TO-BE se puede consultar en el siguiente e
 
 ## Documentación de contextos acotados
 La ejecución del proyecto se realizó utilizando los contenedores de desarrollo locales de VS Code, se recomienda que si se va a realizar una generación de gráficos, se haga de la misma forma.
+1. Instalar extensiones en VS Code
+  - PlantUML → para previsualizar y exportar diagramas.
+  - Extension Pack for Java → incluye soporte para compilar y ejecutar Java en VS Code.
+  - ContextMapper DSL → para abrir y trabajar con archivos .cml y generar los diagramas automáticamente.
+2. Instalar Java y configurar
+- Descarga e instala Java 17 (LTS) desde Adoptium. Configura la variable de entorno:
+  - JAVA_HOME → debe apuntar a la carpeta donde está tu JDK 17.
+  - Agregar %JAVA_HOME%\bin al PATH.
+3. Instalar Graphviz
+- Descarga e instalar desde la página oficial: https://graphviz.org/download/.
+- Configura la variable de entorno:
+-   Agrega la ruta C:\Program Files\Graphviz\bin al PATH.
+4. Generar diagramas png desde un .cml
+- Click derecho sobre el codigo del fichero .clm y presionar "Generate Graphical Context Map"
+  - <img width="704" height="653" alt="image" src="https://github.com/user-attachments/assets/f58bf04c-5668-4227-8b8d-28e160d104b4" />
+
+
 ### AS-IS
 El mapa representa el sistema actual en forma de monolito, con cuatro contextos principales (Reportes, Marca, Pagos y Aliados). Las dependencias son simples y existe un único Shared Kernel entre Marca y Aliados. Refleja un modelo centralizado, con alto acoplamiento y poca flexibilidad para evolucionar.
 
