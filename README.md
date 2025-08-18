@@ -13,7 +13,8 @@
 La documentación del lenguaje ubicuo AS-IS se puede consultar en el siguiente enlace [documentacion lenguaje ubicuo AS-IS](https://miro.com/app/board/uXjVJUhmRa0=/?share_link_id=48136594769)
 <img alt="image" src="https://github.com/user-attachments/assets/7e9a686a-c44a-4c72-8a26-89289138a2a4" />
 ### TO-BE
-La documentación del lenguaje ubicuo TO-BE se puede consultar en el siguiente enlace [documentacion lenguaje ubicuo TO-BE](#)
+La documentación del lenguaje ubicuo TO-BE se puede consultar en el siguiente enlace [documentacion lenguaje ubicuo TO-BE](https://miro.com/app/board/uXjVJTbazrM=/)
+![Event Storming - TO BE](https://github.com/user-attachments/assets/82f17527-0aa6-4332-9bb5-e685adb1cd25)
 
 ## Documentación de contextos acotados
 La ejecución del proyecto se realizó utilizando los contenedores de desarrollo locales de VS Code, se recomienda que si se va a realizar una generación de gráficos, se haga de la misma forma.
